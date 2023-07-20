@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'pagina/inicio'
   get 'carrusel/index'
 
   root 'pagina#inicio'
