@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bienvenido a MusicZone</title>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
+<footer>
+  <nav class="enlaces-relevantes">
+    <ul>
+      <li><%= link_to "Catálogo", catalogo_path %></li>
+      <li><%= link_to "Ofertas", ofertas_path %></li>
+      <li><%= link_to "Artistas", artistas_path %></li>
+      <li><%= link_to "Contacto", contacto_path %></li>
+    </ul>
+  </nav>
+</footer>
+<body>
+  <header>
+    <div class="logo-container">
+      <%= image_tag("justLogo.png", alt: "Logo de MusicZone") %>
+    </div>
+  </header>
+<main>
+  <div class="main-content">
+    <div class="carousel">
+      <div><%= image_tag("imagen1.jpg", alt: "Lanzamiento reciente 1") %></div>
+      <div><%= image_tag("imagen2.jpg", alt: "Lanzamiento reciente 2") %></div>
+      <div><%= image_tag("imagen3.jpg", alt: "Oferta especial") %></div>
+    </div>
+    <h1>Bienvenido a MusicZone</h1>
+    <p>Descubre la mejor música aquí</p>
+    <a href="#" class="btn-comprar">Comprar música</a>
+    <div class="suscripcion">
+      <h2>Suscríbete para recibir noticias y ofertas especiales</h2>
+      <%= form_with(model: @subscription, url: suscripcion_path, method: :post) do |form| %>
+        <%= form.email_field :email, placeholder: "Ingresa tu correo electrónico" %>
+        <%= form.submit "Suscribirme" %>
+      <% end %>
+    </div>
+  </div>
+</main>
+</body>
+</html>

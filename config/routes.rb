@@ -1,6 +1,12 @@
 Rails.application.routes.draw do
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+  get 'carrusel/index'
 
-  # Defines the root path route ("/")
-  # root "articles#index"
+  root 'pagina#inicio'
+  post 'suscripcion', to: 'pagina#suscripcion'
+
+  get 'catalogo', to: 'pagina#catalogo'
+  get 'ofertas', to: 'pagina#ofertas'
+  get 'artistas', to: 'pagina#artistas'
+  get 'contacto', to: 'pagina#contacto'
+
 end
