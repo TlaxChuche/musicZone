@@ -5,11 +5,9 @@
   <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
 </head>
 <body>
-  <header>
-    <div class="logo-container">
-      <%= image_tag("justLogo.png", alt: "Logo de MusicZone") %>
-    </div>
-  </header>
+
+  <%= render 'layouts/header' %>
+
   <main>
     <div class="main-content">
       <h1>Bienvenido a MusicZone</h1>
@@ -36,11 +34,13 @@
   </footer>
 
   <div class="carousel">
-    <% images = ["imagen1.jpg", "imagen2.jpg", "imagen3.jpg"].shuffle %>
-    <% images.each do |imagen| %>
-      <%= image_tag("#{imagen}", alt: "Lanzamiento reciente", class: "collage-image") %>
+    <% album_images = Dir.glob('app/assets/images/albumes/*').map { |file| File.basename(file) }.shuffle %>
+    <% album_images.each do |imagen| %>
+      <%= image_tag("albumes/#{imagen}", alt: "Lanzamiento reciente", class: "collage-image") %>
     <% end %>
   </div>
+
+  <%= render 'layouts/footer' %>
+
 </body>
 </html>
-
