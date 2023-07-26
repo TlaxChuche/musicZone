@@ -1,46 +1,51 @@
 <!DOCTYPE html>
+
 <html>
-<head>
-  <title>Bienvenido a MusicZone</title>
-  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-</head>
-<body>
 
-  <%= render 'layouts/header' %>
+  <head>
+    <title>Bienvenido a MusicZone</title>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  </head>
 
-  <main>
-    <div class="main-content">
-      <h1>Bienvenido a MusicZone</h1>
-      <p>Descubre la mejor música aquí</p>
-      <a href="#" class="btn-comprar">Comprar música</a>
-      <div class="suscripcion">
-        <h2>Suscríbete para recibir noticias y ofertas especiales</h2>
-        <%= form_with(model: @subscription, url: suscripcion_path, method: :post) do |form| %>
-          <%= form.email_field :email, placeholder: "Ingresa tu correo electrónico" %>
-          <%= form.submit "Suscribirme" %>
-        <% end %>
+  <body>
+
+    <%= render 'layouts/header' %>
+
+    <main>
+      <div class="main-content">
+        <h1>Bienvenido a MusicZone</h1>
+        <p>Descubre la mejor música aquí</p>
+        <a href="#" class="btn-comprar">Comprar música</a>
+        <div class="suscripcion">
+          <h2>Suscríbete para recibir noticias y ofertas especiales</h2>
+          <%= form_with(model: @subscription, url: suscripcion_path, method: :post) do |form| %>
+            <%= form.email_field :email, placeholder: "Ingresa tu correo electrónico" %>
+            <%= form.submit "Suscribirme" %>
+          <% end %>
+        </div>
       </div>
+    </main>
+
+    <footer>
+      <nav class="enlaces-relevantes">
+        <ul>
+          <li><%= link_to "Catálogo", catalogo_path %></li>
+          <li><%= link_to "Ofertas", ofertas_path %></li>
+          <li><%= link_to "Artistas", artistas_path %></li>
+          <li><%= link_to "Contacto", contacto_path %></li>
+        </ul>
+      </nav>
+    </footer>
+
+    <div class="carousel">
+      <% album_images = Dir.glob('app/assets/images/albumes/*').map { |file| File.basename(file) }.shuffle %>
+      <% album_images.each do |imagen| %>
+        <%= image_tag("albumes/#{imagen}", alt: "Lanzamiento reciente", class: "collage-image") %>
+      <% end %>
     </div>
-  </main>
-  <footer>
-    <nav class="enlaces-relevantes">
-      <ul>
-        <li><%= link_to "Catálogo", catalogo_path %></li>
-        <li><%= link_to "Ofertas", ofertas_path %></li>
-        <li><%= link_to "Artistas", artistas_path %></li>
-        <li><%= link_to "Contacto", contacto_path %></li>
-      </ul>
-    </nav>
-  </footer>
 
-  <div class="carousel">
-    <% album_images = Dir.glob('app/assets/images/albumes/*').map { |file| File.basename(file) }.shuffle %>
-    <% album_images.each do |imagen| %>
-      <%= image_tag("albumes/#{imagen}", alt: "Lanzamiento reciente", class: "collage-image") %>
-    <% end %>
-  </div>
+    <%= render 'layouts/footer' %>
 
-  <%= render 'layouts/footer' %>
+  </body>
 
-</body>
 </html>

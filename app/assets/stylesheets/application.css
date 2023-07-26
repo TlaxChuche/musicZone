@@ -1,3 +1,5 @@
+@import "bootstrap";
+
 body, html {
     height: 100%;
     margin: 0;
@@ -37,8 +39,7 @@ body, html {
 
   .btn-comprar {
     display: inline-block;
-    background-color: #007bff;
-    color: white;
+    background-color:007bff;
     padding: 10px 20px;
     text-decoration: none;
     border-radius: 5px;
@@ -75,4 +76,24 @@ body, html {
     max-height: 33.33%;
     object-fit: contain;
     border-radius: 5px;
+  }
+
+  .footer-btn {
+    display: inline-block;
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border: none;
+    font-size: 16px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    /* Añadimos los siguientes estilos para el efecto al poner el cursor encima */
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+  }
+
+  .enlaces-relevantes li {
+    display: inline-block;
+    margin-right: 10px;
   }

@@ -1,5 +1,16 @@
 <header>
-    <div class="logo-container">
-      <%= image_tag("justLogo.png", alt: "Logo de MusicZone") %>
+    <header class="py-3">
+      <div class="container">
+        <div class="logo-container">
+      <%= image_tag("justLogo.png", alt: "Logo de MusicZone", class: "img-fluid") %>
     </div>
-  </header>
+    <nav class="enlaces-relevantes">
+      <ul>
+        <li><%= link_to "Catálogo", catalogo_path, class: "footer-btn" %></li>
+        <li><%= link_to "Ofertas", ofertas_path, class: "footer-btn" %></li>
+        <li><%= link_to "Artistas", artistas_path, class: "footer-btn" %></li>
+        <li><%= link_to "Contacto", contacto_path, class: "footer-btn" %></li>
+      </ul>
+    </div>
+  </div>
+</header>
